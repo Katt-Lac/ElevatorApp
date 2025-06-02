@@ -1,0 +1,85 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #263238;
+  padding: 10px 20px;
+  color: #00acc1;
+  z-index: 1000;
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.company-name {
+  font-size: 25px;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  color: white;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right.open {
+  display: block;
+}
+
+.logout-button {
+  background-color: #00acc1;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-right {
+    display: none;
+    flex-direction: column;
+    background-color: #222;
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    padding: 10px;
+  }
+
+  .navbar-right.open {
+    display: flex;
+  }
+}
+
+.dashboard-container {
+  padding-top: 60px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,30 @@
+.import-export {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.import-export button {
+  display: flex;
+  align-items: center;
+  gap: 6px;              /* medzera medzi ikonou a textom */
+  background-color: #fff; /* biele vnútro */
+  border: 2px solid #999; /* sivý okraj */
+  border-radius: 8px;     /* zaoblené rohy */
+  padding: 8px 14px;
+  font-size: 14px;
+  height: 35px;
+  color: #555;            /* tmavošedá farba textu */
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.import-export button:hover {
+  background-color: #f0f0f0;
+  border-color: #666;
+}
+
+.import-export .material-icons {
+  font-size: 18px;
+  color: #555; /* ikony rovnaká farba ako text */
+}

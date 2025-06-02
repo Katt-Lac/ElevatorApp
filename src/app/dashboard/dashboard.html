@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+
+<div class="dashboard-container" [class.filter-open]="filterVisible">
+  <main class="main-content">
+    <!-- H1 a Search Input v jednom riadku -->
+    <div class="header-row">
+      <h1 class="heading">Dashboard</h1>
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search..."
+        (input)="applyFilter($event)"
+      />
+    </div>
+
+    <div class="actions-row">
+      <app-import-export *ngIf="isAdmin"></app-import-export>
+    </div>
+
+    <div class="grid-map-wrapper">
+      <div class="card-grid">
+        <ng-container *ngIf="filteredElevators.length > 0; else noElevators">
+          <app-elevator-list [elevators]="filteredElevators"></app-elevator-list>
+        </ng-container>
+        <ng-template #noElevators>
+          <p style="text-align: center; color: #666; margin-top: 20px;">No elevators found</p>
+        </ng-template>
+      </div>
+      <div class="map-panel">
+        <app-map [elevators]="filteredElevators"></app-map>
+      </div>
+    </div>
+  </main>
+</div>
+
+<app-footer></app-footer>

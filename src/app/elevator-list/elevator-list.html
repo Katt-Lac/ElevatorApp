@@ -1,0 +1,75 @@
+<div class="elevator-list">
+  <div *ngFor="let elevator of elevators"
+       (mouseenter)="onMouseEnter(elevator.name)"
+       (mouseleave)="onMouseLeave()"
+       class="elevator-card">
+    <h2 (click)="openModal(elevator)" class="elevator-title">
+      {{ elevator.name }}
+    </h2>
+
+    <div class="card-content">
+      <div class="left-info">
+        <!-- Location -->
+        <p class="icon-line">
+          <span class="icon material-icons">location_on</span>
+          {{ elevator.location }}
+        </p>
+
+        <!-- Engineer -->
+        <p class="engineer-line">
+          <span class="material-icons">person</span>
+          {{ elevator.engineer }}
+        </p>
+
+        <!-- Door status -->
+        <p>
+          <span
+            [ngClass]="{
+          'door-status': true,
+          'door-opened': !elevator.doorClosed,
+          'door-closed': elevator.doorClosed
+        }"
+          >
+          {{ elevator.doorClosed ? 'Closed door' : 'Opened door' }}
+          </span>
+        </p>
+      </div>
+
+      <div class="right-info">
+        <!-- Load -->
+        <div class="load-section">
+          <span class="load-label">Load</span>
+          <div class="load-circle">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg"
+                    d="M18 2.0845
+                   a 15.9155 15.9155 0 0 1 0 31.831
+                   a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="circle"
+                    [attr.stroke-dasharray]="elevator.load + ', 100'"
+                    d="M18 2.0845
+                   a 15.9155 15.9155 0 0 1 0 31.831
+                   a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <text x="19" y="18" class="percentage-text">{{ elevator.load }}%</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="selectedElevator" (click)="closeModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <h2 class="modal-elevator-name">{{ selectedElevator.name }}</h2>
+    <p><strong>Location:</strong> {{ selectedElevator.location }}</p>
+    <p><strong>Engineer:</strong> {{ selectedElevator.engineer }}</p>
+    <p><strong>Load:</strong> {{ selectedElevator.load }}%</p>
+    <p><strong>Door status:</strong>
+      <span>
+        {{ selectedElevator.doorClosed ? 'Closed' : 'Opened' }}
+      </span>
+    </p>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div>

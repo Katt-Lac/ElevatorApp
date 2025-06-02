@@ -1,0 +1,146 @@
+html, body {
+  height: auto;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Navbar bude fixne hore */
+app-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 20px 10px 20px;
+  gap: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.heading {
+  font-size: 45px;
+  margin: 0;
+}
+
+.actions-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  padding: 0 40px 5px 20px;
+}
+
+/* Flex layout s možnosťou zobrazenia sidebaru ako súčasť obsahu */
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  /*width: 100vw;*/
+  box-sizing: border-box;
+  padding-top: 60px; /* posunutie pod navbar */
+  overflow: hidden;
+  padding-bottom: 60px;
+}
+
+/* Sidebar (viditeľný len keď je filterVisible = true) */
+.sidebar {
+  width: 250px;
+  background-color: #f0f0f0;
+  height: calc(100vh - 60px);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+main.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.search-input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 300px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+/* Wrapper pre grid a mapu */
+.grid-map-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Elevator list */
+.card-grid {
+  flex: 65;
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* Map */
+.map-panel {
+  flex: 35;
+  height: 100%;
+  overflow: hidden;
+}
+
+app-map, app-map > div {
+  height: 100%;
+  width: 100%;
+}
+
+/* RESPONSÍVNE: zlomenie do stĺpca na mobiloch */
+@media (max-width: 900px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    box-shadow: none;
+  }
+
+  .grid-map-wrapper {
+    flex-direction: column;
+  }
+
+  .map-panel {
+    width: 100%;
+    height: 300px;
+  }
+
+  .card-grid {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+/* Sidebar špeciálne pre užšie zariadenia */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+  }
+}

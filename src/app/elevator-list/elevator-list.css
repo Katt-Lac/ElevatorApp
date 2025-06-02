@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.elevator-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 10px;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.left-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.right-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+}
+
+.elevator-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  width: 300px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+
+.elevator-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Nadpis vytahu */
+.elevator-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 6px;
+}
+
+/* LOCATION s ikonou */
+.icon-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #666;
+  font-size: 14px;
+  margin: 4px 0 12px;
+}
+
+.icon {
+  color: #1976d2;
+  font-size: 18px;
+}
+
+.elevator-card p {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #444;
+}
+
+/* LOAD sekcia s kruhovým grafom */
+.load-section {
+  text-align: center;
+  margin: 16px 0;
+}
+
+.load-label {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+.load-circle {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.circular-chart {
+  width: 100%;
+  height: 100%;
+  /* rotujeme len kruh, nie celý SVG */
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke: #00acc1;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.5s ease;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.percentage-text {
+  fill: #333;
+  font-size: 8px;
+  font-weight: bold;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.elevator-title {
+  cursor: pointer;
+  color: #000; /* čierna farba textu */
+  transition: color 0.2s ease;
+}
+
+.elevator-title:hover {
+  color: #1976d2; /* modrá pri hovernutí */
+}
+
+.elevator-card .door-status {
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 13px;
+}
+
+.door-opened {
+  background-color: orange;
+}
+
+.door-closed {
+  background-color: #4caf50;
+}
+
+.engineer-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.engineer-line .material-icons {
+  font-size: 20px;
+  color: #555;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.modal button {
+  margin-top: 20px;
+  background-color: #00acc1;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: #125c9c;
+}
+
+.modal-elevator-name {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 6px;
+}

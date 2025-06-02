@@ -1,0 +1,9 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <img src="logo.png" alt="Logo firmy" class="logo" height="512" width="512">
+    <span class="company-name">My Elevators</span>
+  </div>
+  <div class="navbar-right" [class.open]="isMenuOpen">
+    <button class="logout-button" (click)="logout()">Logout</button>
+  </div>
+</nav>
